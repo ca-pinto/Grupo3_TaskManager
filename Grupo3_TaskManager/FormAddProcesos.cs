@@ -23,5 +23,38 @@ namespace Grupo3_TaskManager
         {
 
         }
+
+        private void txtPrioridad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDProceso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormAddProcesos_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void btnAdd_click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtIDProceso.Text);
+            string nombre = txtNombre.Text;
+            int tiempoLlegada = Convert.ToInt32(txtTiempoLlegada.Text);
+            int tiempoCpu = Convert.ToInt32(txtTiempoCPU.Text);
+            int prioridad = Convert.ToInt32(txtPrioridad.Text);
+
+            datagridProcesos.Rows.Add(id, nombre,  tiempoLlegada, tiempoCpu, prioridad);
+
+            txtIDProceso.Clear();
+            txtNombre.Clear();
+            txtTiempoLlegada.Clear();
+            txtTiempoCPU.Clear();
+            txtPrioridad.Clear();
+
+        }
+
     }
 }

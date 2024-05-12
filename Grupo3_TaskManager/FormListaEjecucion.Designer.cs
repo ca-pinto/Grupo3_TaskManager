@@ -55,6 +55,7 @@
             cmbAlgoritmos.Name = "cmbAlgoritmos";
             cmbAlgoritmos.Size = new Size(217, 28);
             cmbAlgoritmos.TabIndex = 1;
+            cmbAlgoritmos.SelectedIndexChanged += cmbAlgoritmos_SelectedIndexChanged;
             // 
             // btnConfirmar
             // 

@@ -16,5 +16,10 @@ namespace Grupo3_TaskManager
         {
             InitializeComponent();
         }
+
+        private void cmbAlgoritmos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

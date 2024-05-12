@@ -73,6 +73,7 @@
             btnConfigSO.TabIndex = 2;
             btnConfigSO.Text = "Configuración SO";
             btnConfigSO.UseVisualStyleBackColor = false;
+            btnConfigSO.Click += btnConfigSO_Click;
             // 
             // btnEmularTask
             // 
@@ -85,6 +86,7 @@
             btnEmularTask.TabIndex = 3;
             btnEmularTask.Text = "Emular Task Manager";
             btnEmularTask.UseVisualStyleBackColor = false;
+            btnEmularTask.Click += btnEmularTask_Click;
             // 
             // label1
             // 

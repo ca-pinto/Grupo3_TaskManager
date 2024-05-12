@@ -89,6 +89,7 @@
             txtIDProceso.Size = new Size(163, 29);
             txtIDProceso.TabIndex = 2;
             txtIDProceso.TextAlign = HorizontalAlignment.Center;
+            txtIDProceso.TextChanged += txtIDProceso_TextChanged;
             // 
             // label3
             // 
@@ -185,6 +186,7 @@
             txtPrioridad.Size = new Size(163, 29);
             txtPrioridad.TabIndex = 10;
             txtPrioridad.TextAlign = HorizontalAlignment.Center;
+            txtPrioridad.TextChanged += txtPrioridad_TextChanged;
             // 
             // label7
             // 
@@ -343,6 +345,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormAddProcesos";
             Text = "Agregar Procesos";
+            Load += FormAddProcesos_Load;
             ((System.ComponentModel.ISupportInitialize)datagridProcesos).EndInit();
             ResumeLayout(false);
             PerformLayout();

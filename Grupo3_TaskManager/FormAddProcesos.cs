@@ -46,7 +46,7 @@ namespace Grupo3_TaskManager
             int tiempoCpu = Convert.ToInt32(txtTiempoCPU.Text);
             int prioridad = Convert.ToInt32(txtPrioridad.Text);
 
-            datagridProcesos.Rows.Add(id, nombre,  tiempoLlegada, tiempoCpu, prioridad);
+            datagridProcesos.Rows.Add(id, nombre, tiempoLlegada, tiempoCpu, prioridad);
 
             txtIDProceso.Clear();
             txtNombre.Clear();
@@ -56,5 +56,13 @@ namespace Grupo3_TaskManager
 
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtIDProceso.Clear();
+            txtNombre.Clear();
+            txtTiempoLlegada.Clear();
+            txtTiempoCPU.Clear();
+            txtPrioridad.Clear();
+        }
     }
 }

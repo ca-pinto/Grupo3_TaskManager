@@ -305,6 +305,7 @@
             btnClear.TabIndex = 19;
             btnClear.Text = "Limpiar";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // datagridProcesos
             // 

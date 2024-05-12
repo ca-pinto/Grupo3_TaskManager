@@ -30,6 +30,7 @@ namespace Grupo3_TaskManager
         private void btnListaEjecucion_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             FormListaEjecucion frmListaEjec = new FormListaEjecucion();
             frmListaEjec.ShowDialog();
 

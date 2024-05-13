@@ -8,18 +8,28 @@ namespace Grupo3_TaskManager
 {
     public class Procesos
     {
-        public int id;
-        public string nombre;
-        public int tiempoLlegada;
-        public int tiempoCpu;
-        public int prioridad;
-        public string estado;
-        public bool terminado;
-        public int sorteo;
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int TiempoLlegada { get; set; }
+        public int TiempoCpu { get; set; }
+        public int Prioridad { get; set; }
+        public string Estado { get; set; }
+        public bool Terminado { get; set; }
+        public int? Sorteo { get; set; } // Sorteo es opcional
 
-        public Procesos(int id, string nombre, int tiempoLlegada, int tiempoCpu, int prioridad, string estado, bool terminado, int sorteo)
+
+        public Procesos(int id, string nombre, int tiempoLlegada, int tiempoCpu, int prioridad, string estado, bool terminado, int? sorteo = null)
         {
-
+            Id = id;
+            Nombre = nombre;
+            TiempoLlegada = tiempoLlegada;
+            TiempoCpu = tiempoCpu;
+            Prioridad = prioridad;
+            Estado = estado;
+            Terminado = terminado;
+            Sorteo = sorteo;
         }
+
+
     }
 }

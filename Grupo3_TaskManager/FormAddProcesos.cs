@@ -45,8 +45,15 @@ namespace Grupo3_TaskManager
             int tiempoLlegada = Convert.ToInt32(txtTiempoLlegada.Text);
             int tiempoCpu = Convert.ToInt32(txtTiempoCPU.Text);
             int prioridad = Convert.ToInt32(txtPrioridad.Text);
+            string estado = txtEstado.Text;
+            bool terminado = (rdbTrue.Checked ? true : false);
+            int sorteo = 0;
+            
+            Procesos procesos = new Procesos (id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
 
-            datagridProcesos.Rows.Add(id, nombre, tiempoLlegada, tiempoCpu, prioridad);
+            GestorColas.AgregarProceso(procesos);
+
+            datagridProcesos.Rows.Add(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
 
             txtIDProceso.Clear();
             txtNombre.Clear();

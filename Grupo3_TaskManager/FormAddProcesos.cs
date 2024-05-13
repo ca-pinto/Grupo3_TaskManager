@@ -48,12 +48,12 @@ namespace Grupo3_TaskManager
             string estado = txtEstado.Text;
             bool terminado = (rdbTrue.Checked ? true : false);
             int sorteo = 0;
-            
-            Procesos procesos = new Procesos (id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
+
+            Procesos procesos = new Procesos(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
 
             GestorColas.AgregarProceso(procesos);
 
-            datagridProcesos.Rows.Add(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
+            ActualizarDataGridView();
 
             txtIDProceso.Clear();
             txtNombre.Clear();
@@ -63,6 +63,20 @@ namespace Grupo3_TaskManager
 
         }
 
+        private void ActualizarDataGridView()
+        {
+            datagridProcesos.Rows.Clear();
+            var procesos = GestorColas.ObtenerColaProcesos().ToList();
+
+            foreach (Procesos proceso in procesos)
+            {
+                object valorSorteo = proceso.Sorteo.HasValue ? (object)proceso.Sorteo.Value.ToString() : DBNull.Value;
+                datagridProcesos.Rows.Add(proceso.Id, proceso.Nombre, proceso.TiempoLlegada, proceso.TiempoCpu, proceso.Prioridad, proceso.Estado, proceso.Terminado, valorSorteo);
+            }
+
+            datagridProcesos.Refresh();
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtIDProceso.Clear();
@@ -70,6 +84,14 @@ namespace Grupo3_TaskManager
             txtTiempoLlegada.Clear();
             txtTiempoCPU.Clear();
             txtPrioridad.Clear();
+        }
+
+        private void btnFin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormPrincipal frm = new FormPrincipal();
+            frm.ShowDialog();
         }
     }
 }

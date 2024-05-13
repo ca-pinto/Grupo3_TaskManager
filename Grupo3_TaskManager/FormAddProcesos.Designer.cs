@@ -50,6 +50,13 @@
             btnFin = new Button();
             btnClear = new Button();
             datagridProcesos = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            TiempoLlegada = new DataGridViewTextBoxColumn();
+            TiempoCpu = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
+            Terminado = new DataGridViewTextBoxColumn();
+            Sorteo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)datagridProcesos).BeginInit();
             SuspendLayout();
             // 
@@ -279,6 +286,7 @@
             btnAdd.TabIndex = 17;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_click;
             // 
             // btnFin
             // 
@@ -292,6 +300,7 @@
             btnFin.TabIndex = 18;
             btnFin.Text = "Finalizar";
             btnFin.UseVisualStyleBackColor = false;
+            btnFin.Click += btnFin_Click;
             // 
             // btnClear
             // 
@@ -311,10 +320,46 @@
             // 
             datagridProcesos.BackgroundColor = SystemColors.InactiveCaption;
             datagridProcesos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            datagridProcesos.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, TiempoLlegada, TiempoCpu, Estado, Terminado, Sorteo });
             datagridProcesos.Location = new Point(36, 333);
             datagridProcesos.Name = "datagridProcesos";
             datagridProcesos.Size = new Size(760, 272);
             datagridProcesos.TabIndex = 20;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "ID Proceso";
+            Id.Name = "Id";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // TiempoLlegada
+            // 
+            TiempoLlegada.HeaderText = "Tiempo de Llegada";
+            TiempoLlegada.Name = "TiempoLlegada";
+            // 
+            // TiempoCpu
+            // 
+            TiempoCpu.HeaderText = "Tiempo de CPU";
+            TiempoCpu.Name = "TiempoCpu";
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            // 
+            // Terminado
+            // 
+            Terminado.HeaderText = "Terminado";
+            Terminado.Name = "Terminado";
+            // 
+            // Sorteo
+            // 
+            Sorteo.HeaderText = "Sorteo";
+            Sorteo.Name = "Sorteo";
             // 
             // FormAddProcesos
             // 
@@ -375,5 +420,12 @@
         private Button btnFin;
         private Button btnClear;
         private DataGridView datagridProcesos;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn TiempoLlegada;
+        private DataGridViewTextBoxColumn TiempoCpu;
+        private DataGridViewTextBoxColumn Estado;
+        private DataGridViewTextBoxColumn Terminado;
+        private DataGridViewTextBoxColumn Sorteo;
     }
 }

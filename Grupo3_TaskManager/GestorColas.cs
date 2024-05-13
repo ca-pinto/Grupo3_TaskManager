@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,21 +10,28 @@ namespace Grupo3_TaskManager
 {
     internal class GestorColas
     {
-        private static Queue<Procesos> colaProcesos = new Queue<Procesos>();
+        public static Queue<Procesos> ColaProcesos { get; } = new Queue<Procesos>();
 
         public static void AgregarProceso(Procesos proceso)
         {
-            colaProcesos.Enqueue(proceso);
+            ColaProcesos.Enqueue(proceso);
         }
 
         public static Procesos EliminarProceso()
         {
-            return colaProcesos.Dequeue();
+            return ColaProcesos.Dequeue();
         }
 
         public static int ContarProcesos()
         {
-            return colaProcesos.Count;
+            return ColaProcesos.Count;
         }
+
+        public static Queue<Procesos> ObtenerColaProcesos()
+        {
+            return ColaProcesos;
+        }
+
+
     }
 }

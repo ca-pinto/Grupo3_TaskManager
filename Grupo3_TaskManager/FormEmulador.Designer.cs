@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmulador));
+            dataGridProcesos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridProcesos).BeginInit();
             SuspendLayout();
+            // 
+            // dataGridProcesos
+            // 
+            dataGridProcesos.BackgroundColor = SystemColors.InactiveCaption;
+            dataGridProcesos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridProcesos.Location = new Point(178, 226);
+            dataGridProcesos.Name = "dataGridProcesos";
+            dataGridProcesos.Size = new Size(595, 268);
+            dataGridProcesos.TabIndex = 0;
             // 
             // FormEmulador
             // 
@@ -37,11 +48,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(963, 535);
+            Controls.Add(dataGridProcesos);
             Name = "FormEmulador";
             Text = "FormEmulador";
+            ((System.ComponentModel.ISupportInitialize)dataGridProcesos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridProcesos;
     }
 }

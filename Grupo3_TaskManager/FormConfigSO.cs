@@ -12,10 +12,6 @@ namespace Grupo3_TaskManager
 {
     public partial class FormConfigSO : Form
     {
-        public FormConfigSO()
-        {
-            InitializeComponent();
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

@@ -91,6 +91,7 @@
             btnSave.TabIndex = 4;
             btnSave.Text = "Guardar";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnSalir
             // 

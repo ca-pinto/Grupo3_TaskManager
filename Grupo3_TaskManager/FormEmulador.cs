@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Grupo3_TaskManager
 {
+
     public partial class FormEmulador : Form
     {
         public FormEmulador()
         {
             InitializeComponent();
+            //Procesos proceso = new Procesos();
+
+        }
+
+
+        private void textMemoria_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

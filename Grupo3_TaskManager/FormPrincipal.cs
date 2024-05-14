@@ -49,7 +49,12 @@ namespace Grupo3_TaskManager
 
         private void btnEmularTask_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+
+            FormEmulador frmEmulador = new FormEmulador();
+            frmEmulador.ShowDialog();
+
+            this.Show();
         }
     }
 }

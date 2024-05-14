@@ -1,6 +1,6 @@
 ﻿namespace Grupo3_TaskManager
 {
-    partial class FormEmulador
+    partial class FormConfigSO
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmulador));
-            dataGridProcesos = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridProcesos).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfigSO));
             SuspendLayout();
             // 
-            // dataGridProcesos
-            // 
-            dataGridProcesos.BackgroundColor = SystemColors.InactiveCaption;
-            dataGridProcesos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridProcesos.Location = new Point(58, 235);
-            dataGridProcesos.Name = "dataGridProcesos";
-            dataGridProcesos.Size = new Size(855, 272);
-            dataGridProcesos.TabIndex = 0;
-            // 
-            // FormEmulador
+            // FormConfigSO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(963, 535);
-            Controls.Add(dataGridProcesos);
-            Name = "FormEmulador";
-            Text = "FormEmulador";
-            ((System.ComponentModel.ISupportInitialize)dataGridProcesos).EndInit();
+            ClientSize = new Size(800, 450);
+            Name = "FormConfigSO";
+            Text = "FormConfigSO";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private DataGridView dataGridProcesos;
     }
 }

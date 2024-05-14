@@ -294,7 +294,7 @@
             btnFin.BackColor = Color.MidnightBlue;
             btnFin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnFin.ForeColor = SystemColors.ButtonHighlight;
-            btnFin.Location = new Point(778, 223);
+            btnFin.Location = new Point(768, 223);
             btnFin.Margin = new Padding(3, 2, 3, 2);
             btnFin.Name = "btnFin";
             btnFin.Size = new Size(113, 40);

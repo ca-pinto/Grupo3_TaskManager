@@ -15,10 +15,11 @@ namespace Grupo3_TaskManager
         public int Prioridad { get; set; }
         public string Estado { get; set; }
         public bool Terminado { get; set; }
+        public string Algoritmo { get; set; }
         public int? Sorteo { get; set; } // Sorteo es opcional
 
 
-        public Procesos(int id, string nombre, int tiempoLlegada, int tiempoCpu, int prioridad, string estado, bool terminado, int? sorteo = null)
+        public Procesos(int id, string nombre, int tiempoLlegada, int tiempoCpu, int prioridad, string estado, bool terminado, string algoritmo, int? sorteo = null)
         {
             Id = id;
             Nombre = nombre;
@@ -27,6 +28,7 @@ namespace Grupo3_TaskManager
             Prioridad = prioridad;
             Estado = estado;
             Terminado = terminado;
+            Algoritmo = algoritmo;
             Sorteo = sorteo;
         }
 

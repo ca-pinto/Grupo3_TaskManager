@@ -40,20 +40,22 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(46, 39);
+            label1.Location = new Point(53, 52);
             label1.Name = "label1";
-            label1.Size = new Size(493, 21);
+            label1.Size = new Size(624, 28);
             label1.TabIndex = 0;
             label1.Text = "Seleccione el tipo de algoritmo con el que desea trabajar los procesos.";
             // 
             // cmbAlgoritmos
             // 
+            cmbAlgoritmos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAlgoritmos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbAlgoritmos.FormattingEnabled = true;
             cmbAlgoritmos.Items.AddRange(new object[] { "Planificación por Prioridad", "Round Robin", "Multicolas", "Trabajo más corto primero", "Planificación Garantizada", "Planificación por Sorteo", "Reparto Equitativo" });
-            cmbAlgoritmos.Location = new Point(190, 144);
+            cmbAlgoritmos.Location = new Point(217, 192);
+            cmbAlgoritmos.Margin = new Padding(3, 4, 3, 4);
             cmbAlgoritmos.Name = "cmbAlgoritmos";
-            cmbAlgoritmos.Size = new Size(217, 28);
+            cmbAlgoritmos.Size = new Size(247, 33);
             cmbAlgoritmos.TabIndex = 1;
             cmbAlgoritmos.SelectedIndexChanged += cmbAlgoritmos_SelectedIndexChanged;
             // 
@@ -62,22 +64,25 @@
             btnConfirmar.BackColor = Color.MidnightBlue;
             btnConfirmar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(244, 265);
+            btnConfirmar.Location = new Point(279, 353);
+            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(116, 39);
+            btnConfirmar.Size = new Size(133, 52);
             btnConfirmar.TabIndex = 2;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // FormListaEjecucion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(598, 329);
+            ClientSize = new Size(683, 439);
             Controls.Add(btnConfirmar);
             Controls.Add(cmbAlgoritmos);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormListaEjecucion";
             Text = "Definir Lista de Ejecución";
             ResumeLayout(false);

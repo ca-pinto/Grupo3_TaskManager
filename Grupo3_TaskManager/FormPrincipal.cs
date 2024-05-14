@@ -21,8 +21,8 @@ namespace Grupo3_TaskManager
         {
             this.Hide();
 
-            FormAddProcesos frmProcesos = new FormAddProcesos();
-            frmProcesos.ShowDialog();
+            FormListaEjecucion frm = new FormListaEjecucion();
+            frm.ShowDialog();
 
             this.Show();
         }

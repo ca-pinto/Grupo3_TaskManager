@@ -12,11 +12,13 @@ namespace Grupo3_TaskManager
 {
     public partial class FormAddProcesos : Form
     {
-        public FormAddProcesos()
+        private string SeleccionAlgoritmo;
+        public FormAddProcesos(string algoritmo)
         {
             InitializeComponent();
             //Procesos proceso = new Procesos();
 
+            SeleccionAlgoritmo = algoritmo;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -47,9 +49,10 @@ namespace Grupo3_TaskManager
             int prioridad = Convert.ToInt32(txtPrioridad.Text);
             string estado = txtEstado.Text;
             bool terminado = (rdbTrue.Checked ? true : false);
+            string algoritmo = SeleccionAlgoritmo.ToString();
             int sorteo = 0;
 
-            Procesos procesos = new Procesos(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, sorteo);
+            Procesos procesos = new Procesos(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, algoritmo, sorteo);
 
             GestorColas.AgregarProceso(procesos);
 
@@ -71,7 +74,7 @@ namespace Grupo3_TaskManager
             foreach (Procesos proceso in procesos)
             {
                 object valorSorteo = proceso.Sorteo.HasValue ? (object)proceso.Sorteo.Value.ToString() : DBNull.Value;
-                datagridProcesos.Rows.Add(proceso.Id, proceso.Nombre, proceso.TiempoLlegada, proceso.TiempoCpu, proceso.Prioridad, proceso.Estado, proceso.Terminado, valorSorteo);
+                datagridProcesos.Rows.Add(proceso.Id, proceso.Nombre, proceso.TiempoLlegada, proceso.TiempoCpu, proceso.Prioridad, proceso.Estado, proceso.Terminado, proceso.Algoritmo, valorSorteo);
             }
 
             datagridProcesos.Refresh();

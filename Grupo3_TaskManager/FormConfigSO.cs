@@ -12,13 +12,6 @@ namespace Grupo3_TaskManager
 {
     public partial class FormConfigSO : Form
     {
-        public FormConfigSO()
-        {
-            InitializeComponent();
-            //Procesos proceso = new Procesos();
-
-        }
-        public int Memoria {  get; set; }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -46,20 +39,6 @@ namespace Grupo3_TaskManager
 
             FormPrincipal frm = new FormPrincipal();
             frm.ShowDialog();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if(int.TryParse(textMemo.Text, out int memoria1))
-            {
-                Memoria = memoria1;
-                MessageBox.Show("Los Datos se han Guardado");
-
-            }
-            else
-            {
-                MessageBox.Show("Por Favor, Ingrese los datos");
-            }
         }
     }
 }

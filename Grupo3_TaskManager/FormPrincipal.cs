@@ -39,7 +39,12 @@ namespace Grupo3_TaskManager
 
         private void btnConfigSO_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
+            FormConfigSO frmConfigSO = new FormConfigSO();
+            frmConfigSO.ShowDialog();
+
+            this.Show();
         }
 
         private void btnEmularTask_Click(object sender, EventArgs e)

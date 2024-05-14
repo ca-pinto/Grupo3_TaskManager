@@ -62,7 +62,7 @@
             btnConfirmar.BackColor = Color.MidnightBlue;
             btnConfirmar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(229, 268);
+            btnConfirmar.Location = new Point(244, 265);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(116, 39);
             btnConfirmar.TabIndex = 2;

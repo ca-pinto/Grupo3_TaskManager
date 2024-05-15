@@ -18,7 +18,7 @@ namespace Grupo3_TaskManager
             //Procesos proceso = new Procesos();
 
         }
-        public int Memoria {  get; set; }
+        public int Memoria { get; set; }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace Grupo3_TaskManager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(int.TryParse(textMemo.Text, out int memoria1))
+            if (int.TryParse(textMemo.Text, out int memoria1))
             {
                 Memoria = memoria1;
                 MessageBox.Show("Los Datos se han Guardado");
@@ -59,6 +59,22 @@ namespace Grupo3_TaskManager
             else
             {
                 MessageBox.Show("Por Favor, Ingrese los datos");
+            }
+        }
+
+        private void txtQuantum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textMemo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -68,9 +68,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(455, 45);
+            label1.Location = new Point(502, 24);
             label1.Name = "label1";
-            label1.Size = new Size(392, 62);
+            label1.Size = new Size(314, 51);
             label1.TabIndex = 0;
             label1.Text = "Agregar Procesos";
             // 
@@ -80,9 +80,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(180, 135);
+            label2.Location = new Point(158, 101);
             label2.Name = "label2";
-            label2.Size = new Size(122, 31);
+            label2.Size = new Size(102, 25);
             label2.TabIndex = 1;
             label2.Text = "ID Proceso";
             label2.Click += label2_Click;
@@ -92,12 +92,14 @@
             txtIDProceso.BackColor = SystemColors.InactiveCaption;
             txtIDProceso.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIDProceso.ForeColor = SystemColors.WindowText;
-            txtIDProceso.Location = new Point(308, 135);
+            txtIDProceso.Location = new Point(270, 101);
+            txtIDProceso.Margin = new Padding(3, 2, 3, 2);
             txtIDProceso.Name = "txtIDProceso";
-            txtIDProceso.Size = new Size(186, 34);
+            txtIDProceso.Size = new Size(163, 29);
             txtIDProceso.TabIndex = 2;
             txtIDProceso.TextAlign = HorizontalAlignment.Center;
             txtIDProceso.TextChanged += txtIDProceso_TextChanged;
+            txtIDProceso.KeyPress += txtIDProceso_KeyPress;
             // 
             // label3
             // 
@@ -105,9 +107,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(180, 193);
+            label3.Location = new Point(158, 145);
             label3.Name = "label3";
-            label3.Size = new Size(98, 31);
+            label3.Size = new Size(81, 25);
             label3.TabIndex = 3;
             label3.Text = "Nombre";
             // 
@@ -116,11 +118,13 @@
             txtNombre.BackColor = SystemColors.InactiveCaption;
             txtNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombre.ForeColor = SystemColors.WindowText;
-            txtNombre.Location = new Point(308, 193);
+            txtNombre.Location = new Point(270, 145);
+            txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(186, 34);
+            txtNombre.Size = new Size(163, 29);
             txtNombre.TabIndex = 4;
             txtNombre.TextAlign = HorizontalAlignment.Center;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // label4
             // 
@@ -128,9 +132,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(180, 261);
+            label4.Location = new Point(158, 196);
             label4.Name = "label4";
-            label4.Size = new Size(208, 31);
+            label4.Size = new Size(171, 25);
             label4.TabIndex = 5;
             label4.Text = "Tiempo Llegada (s)";
             // 
@@ -139,11 +143,13 @@
             txtTiempoLlegada.BackColor = SystemColors.InactiveCaption;
             txtTiempoLlegada.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTiempoLlegada.ForeColor = SystemColors.WindowText;
-            txtTiempoLlegada.Location = new Point(394, 261);
+            txtTiempoLlegada.Location = new Point(345, 196);
+            txtTiempoLlegada.Margin = new Padding(3, 2, 3, 2);
             txtTiempoLlegada.Name = "txtTiempoLlegada";
-            txtTiempoLlegada.Size = new Size(100, 34);
+            txtTiempoLlegada.Size = new Size(88, 29);
             txtTiempoLlegada.TabIndex = 6;
             txtTiempoLlegada.TextAlign = HorizontalAlignment.Center;
+            txtTiempoLlegada.KeyPress += txtTiempoLlegada_KeyPress;
             // 
             // label5
             // 
@@ -151,9 +157,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(180, 321);
+            label5.Location = new Point(158, 241);
             label5.Name = "label5";
-            label5.Size = new Size(170, 31);
+            label5.Size = new Size(141, 25);
             label5.TabIndex = 7;
             label5.Text = "Tiempo CPU (s)";
             // 
@@ -162,11 +168,13 @@
             txtTiempoCPU.BackColor = SystemColors.InactiveCaption;
             txtTiempoCPU.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTiempoCPU.ForeColor = SystemColors.WindowText;
-            txtTiempoCPU.Location = new Point(394, 316);
+            txtTiempoCPU.Location = new Point(345, 237);
+            txtTiempoCPU.Margin = new Padding(3, 2, 3, 2);
             txtTiempoCPU.Name = "txtTiempoCPU";
-            txtTiempoCPU.Size = new Size(100, 34);
+            txtTiempoCPU.Size = new Size(88, 29);
             txtTiempoCPU.TabIndex = 8;
             txtTiempoCPU.TextAlign = HorizontalAlignment.Center;
+            txtTiempoCPU.KeyPress += txtTiempoCPU_KeyPress;
             // 
             // label6
             // 
@@ -174,9 +182,9 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(633, 135);
+            label6.Location = new Point(554, 101);
             label6.Name = "label6";
-            label6.Size = new Size(108, 31);
+            label6.Size = new Size(90, 25);
             label6.TabIndex = 9;
             label6.Text = "Prioridad";
             // 
@@ -185,12 +193,14 @@
             txtPrioridad.BackColor = SystemColors.InactiveCaption;
             txtPrioridad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPrioridad.ForeColor = SystemColors.WindowText;
-            txtPrioridad.Location = new Point(746, 129);
+            txtPrioridad.Location = new Point(653, 97);
+            txtPrioridad.Margin = new Padding(3, 2, 3, 2);
             txtPrioridad.Name = "txtPrioridad";
-            txtPrioridad.Size = new Size(186, 34);
+            txtPrioridad.Size = new Size(163, 29);
             txtPrioridad.TabIndex = 10;
             txtPrioridad.TextAlign = HorizontalAlignment.Center;
             txtPrioridad.TextChanged += txtPrioridad_TextChanged;
+            txtPrioridad.KeyPress += txtPrioridad_KeyPress;
             // 
             // label7
             // 
@@ -198,20 +208,22 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(633, 193);
+            label7.Location = new Point(554, 145);
             label7.Name = "label7";
-            label7.Size = new Size(83, 31);
+            label7.Size = new Size(68, 25);
             label7.TabIndex = 11;
             label7.Text = "Estado";
             // 
             // txtEstado
             // 
             txtEstado.BackColor = SystemColors.InactiveCaption;
+            txtEstado.Enabled = false;
             txtEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEstado.ForeColor = SystemColors.WindowText;
-            txtEstado.Location = new Point(746, 188);
+            txtEstado.Location = new Point(653, 141);
+            txtEstado.Margin = new Padding(3, 2, 3, 2);
             txtEstado.Name = "txtEstado";
-            txtEstado.Size = new Size(186, 34);
+            txtEstado.Size = new Size(163, 29);
             txtEstado.TabIndex = 12;
             txtEstado.Text = "Inicio";
             txtEstado.TextAlign = HorizontalAlignment.Center;
@@ -222,9 +234,9 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(633, 261);
+            label8.Location = new Point(554, 196);
             label8.Name = "label8";
-            label8.Size = new Size(122, 31);
+            label8.Size = new Size(101, 25);
             label8.TabIndex = 13;
             label8.Text = "Terminado";
             // 
@@ -232,13 +244,14 @@
             // 
             rdbTrue.AutoSize = true;
             rdbTrue.BackColor = Color.Transparent;
+            rdbTrue.Enabled = false;
             rdbTrue.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rdbTrue.ForeColor = SystemColors.ButtonHighlight;
-            rdbTrue.Location = new Point(762, 268);
+            rdbTrue.Location = new Point(667, 201);
+            rdbTrue.Margin = new Padding(3, 2, 3, 2);
             rdbTrue.Name = "rdbTrue";
-            rdbTrue.Size = new Size(44, 29);
+            rdbTrue.Size = new Size(36, 24);
             rdbTrue.TabIndex = 14;
-            rdbTrue.TabStop = true;
             rdbTrue.Text = "V";
             rdbTrue.UseVisualStyleBackColor = false;
             // 
@@ -246,11 +259,14 @@
             // 
             rdbFalse.AutoSize = true;
             rdbFalse.BackColor = Color.Transparent;
+            rdbFalse.Checked = true;
+            rdbFalse.Enabled = false;
             rdbFalse.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rdbFalse.ForeColor = SystemColors.ButtonHighlight;
-            rdbFalse.Location = new Point(826, 268);
+            rdbFalse.Location = new Point(723, 201);
+            rdbFalse.Margin = new Padding(3, 2, 3, 2);
             rdbFalse.Name = "rdbFalse";
-            rdbFalse.Size = new Size(42, 29);
+            rdbFalse.Size = new Size(34, 24);
             rdbFalse.TabIndex = 15;
             rdbFalse.TabStop = true;
             rdbFalse.Text = "F";
@@ -262,9 +278,9 @@
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(634, 321);
+            label9.Location = new Point(555, 241);
             label9.Name = "label9";
-            label9.Size = new Size(80, 31);
+            label9.Size = new Size(67, 25);
             label9.TabIndex = 16;
             label9.Text = "Sorteo";
             // 
@@ -273,9 +289,10 @@
             btnAdd.BackColor = Color.MidnightBlue;
             btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(1021, 115);
+            btnAdd.Location = new Point(956, 93);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(129, 53);
+            btnAdd.Size = new Size(113, 40);
             btnAdd.TabIndex = 17;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = false;
@@ -286,9 +303,10 @@
             btnFin.BackColor = Color.MidnightBlue;
             btnFin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnFin.ForeColor = SystemColors.ButtonHighlight;
-            btnFin.Location = new Point(1021, 301);
+            btnFin.Location = new Point(956, 233);
+            btnFin.Margin = new Padding(3, 2, 3, 2);
             btnFin.Name = "btnFin";
-            btnFin.Size = new Size(129, 53);
+            btnFin.Size = new Size(113, 40);
             btnFin.TabIndex = 18;
             btnFin.Text = "Finalizar";
             btnFin.UseVisualStyleBackColor = false;
@@ -299,9 +317,10 @@
             btnClear.BackColor = Color.MidnightBlue;
             btnClear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClear.ForeColor = SystemColors.ButtonHighlight;
-            btnClear.Location = new Point(1021, 209);
+            btnClear.Location = new Point(956, 164);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(129, 53);
+            btnClear.Size = new Size(113, 40);
             btnClear.TabIndex = 19;
             btnClear.Text = "Limpiar";
             btnClear.UseVisualStyleBackColor = false;
@@ -312,11 +331,10 @@
             datagridProcesos.BackgroundColor = SystemColors.InactiveCaption;
             datagridProcesos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             datagridProcesos.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, TiempoLlegada, TiempoCpu, Prioridad, Estado, Terminado, Algoritmo, Sorteo });
-            datagridProcesos.Location = new Point(35, 453);
-            datagridProcesos.Margin = new Padding(3, 4, 3, 4);
+            datagridProcesos.Location = new Point(23, 340);
             datagridProcesos.Name = "datagridProcesos";
             datagridProcesos.RowHeadersWidth = 51;
-            datagridProcesos.Size = new Size(1134, 363);
+            datagridProcesos.Size = new Size(1146, 272);
             datagridProcesos.TabIndex = 20;
             // 
             // Id
@@ -384,10 +402,10 @@
             // 
             // FormAddProcesos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1190, 829);
+            ClientSize = new Size(1190, 651);
             Controls.Add(datagridProcesos);
             Controls.Add(btnClear);
             Controls.Add(btnFin);
@@ -409,6 +427,7 @@
             Controls.Add(txtIDProceso);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormAddProcesos";
             Text = "Agregar Procesos";
             Load += FormAddProcesos_Load;

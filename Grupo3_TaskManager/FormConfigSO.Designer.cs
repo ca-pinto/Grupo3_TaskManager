@@ -35,6 +35,8 @@
             textMemo = new TextBox();
             btnSave = new Button();
             btnSalir = new Button();
+            label4 = new Label();
+            txtQuantum = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -66,7 +68,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(69, 120);
+            label3.Location = new Point(124, 220);
             label3.Name = "label3";
             label3.Size = new Size(199, 25);
             label3.TabIndex = 2;
@@ -74,18 +76,19 @@
             // 
             // textMemo
             // 
-            textMemo.Location = new Point(274, 122);
+            textMemo.Location = new Point(368, 222);
             textMemo.Name = "textMemo";
             textMemo.Size = new Size(146, 23);
             textMemo.TabIndex = 3;
             textMemo.TextChanged += textMemo_TextChanged;
+            textMemo.KeyPress += textMemo_KeyPress;
             // 
             // btnSave
             // 
             btnSave.BackColor = Color.MidnightBlue;
             btnSave.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSave.ForeColor = SystemColors.ButtonHighlight;
-            btnSave.Location = new Point(346, 240);
+            btnSave.Location = new Point(274, 298);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(116, 39);
             btnSave.TabIndex = 4;
@@ -98,7 +101,7 @@
             btnSalir.BackColor = Color.MidnightBlue;
             btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = SystemColors.ButtonHighlight;
-            btnSalir.Location = new Point(349, 296);
+            btnSalir.Location = new Point(433, 298);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(113, 40);
@@ -107,12 +110,34 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.Location = new Point(124, 166);
+            label4.Name = "label4";
+            label4.Size = new Size(189, 25);
+            label4.TabIndex = 20;
+            label4.Text = "Quantum de Tiempo:";
+            // 
+            // txtQuantum
+            // 
+            txtQuantum.Location = new Point(368, 166);
+            txtQuantum.Name = "txtQuantum";
+            txtQuantum.Size = new Size(146, 23);
+            txtQuantum.TabIndex = 21;
+            txtQuantum.KeyPress += txtQuantum_KeyPress;
+            // 
             // FormConfigSO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
+            Controls.Add(txtQuantum);
+            Controls.Add(label4);
             Controls.Add(btnSalir);
             Controls.Add(btnSave);
             Controls.Add(textMemo);
@@ -133,5 +158,7 @@
         private TextBox textMemo;
         private Button btnSave;
         private Button btnSalir;
+        private Label label4;
+        private TextBox txtQuantum;
     }
 }

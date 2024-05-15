@@ -37,7 +37,7 @@ namespace Grupo3_TaskManager
             this.Show();
         }
 
-        private void btnConfigSO_Click(object sender, EventArgs e)
+       /* private void btnConfigSO_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -46,15 +46,14 @@ namespace Grupo3_TaskManager
 
             this.Show();
         }
-
-        private void btnEmularTask_Click(object sender, EventArgs e)
-        {
+       
+          private void btnEmularTask_Click(object sender, EventArgs e){
             this.Hide();
 
             FormEmulador frmEmulador = new FormEmulador();
             frmEmulador.ShowDialog();
 
             this.Show();
-        }
+        }*/
     }
 }

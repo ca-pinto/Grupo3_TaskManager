@@ -13,6 +13,7 @@ namespace Grupo3_TaskManager
     public partial class FormAddProcesos : Form
     {
         private string SeleccionAlgoritmo;
+
         public FormAddProcesos(string algoritmo)
         {
             InitializeComponent();
@@ -38,7 +39,15 @@ namespace Grupo3_TaskManager
 
         private void FormAddProcesos_Load(object sender, EventArgs e)
         {
+            DataGridViewButtonColumn matar = new DataGridViewButtonColumn();
+            matar.HeaderText = "Matar";
+            matar.Text = "x";
+            matar.Name = "btnMatar";
+            matar.UseColumnTextForButtonValue = true;
 
+            datagridProcesos.Columns.Add(matar);
+
+            LlenarDataGridView();
         }
         private void btnAdd_click(object sender, EventArgs e)
         {
@@ -65,6 +74,29 @@ namespace Grupo3_TaskManager
             txtPrioridad.Clear();
 
         }
+
+        private void LlenarDataGridView()
+        {
+
+            foreach (var proceso in GestorColas.ObtenerColaProcesos())
+            {
+                dataGridView1.Rows.Add(proceso.Id, proceso.Nombre, proceso.TiempoLlegada, proceso.TiempoCpu, proceso.Prioridad, proceso.Estado, proceso.Algoritmo, proceso.Sorteo);
+            }
+        }
+        private void EliminarProcesoPorId(int id)
+        {
+
+            var proceso = GestorColas.ObtenerProcesoPorId(id);
+            if (proceso != null)
+            {
+                var listaProcesos = GestorColas.ObtenerColaProcesos().ToList();
+                listaProcesos.Remove(proceso);
+
+
+                GestorColas.ActualizarCola(listaProcesos);
+            }
+        }
+
 
         private void ActualizarDataGridView()
         {
@@ -107,7 +139,7 @@ namespace Grupo3_TaskManager
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void txtTiempoLlegada_KeyPress(object sender, KeyPressEventArgs e)
@@ -131,6 +163,21 @@ namespace Grupo3_TaskManager
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void datagridProcesos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == datagridProcesos.Columns["btnMatar"].Index)
+            {
+
+                int procesoId = Convert.ToInt32(datagridProcesos.Rows[e.RowIndex].Cells["Id"].Value);
+
+
+                EliminarProcesoPorId(procesoId);
+
+
+                ActualizarDataGridView();
             }
         }
     }

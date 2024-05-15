@@ -55,7 +55,7 @@ namespace Grupo3_TaskManager
             return ColaProcesos.FirstOrDefault(p => p.Id == id);
         }
 
-        private static void ActualizarCola(List<Procesos> listaOrdenada)
+        public static void ActualizarCola(List<Procesos> listaOrdenada)
         {
             ColaProcesos.Clear();
             foreach (var proceso in listaOrdenada)

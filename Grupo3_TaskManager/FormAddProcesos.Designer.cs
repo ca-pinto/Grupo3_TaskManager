@@ -50,13 +50,6 @@
             btnFin = new Button();
             btnClear = new Button();
             datagridProcesos = new DataGridView();
-            btnEjecutar = new Button();
-            dataGridView1 = new DataGridView();
-            txtSorteo = new TextBox();
-            label10 = new Label();
-            txtQuantum = new TextBox();
-            label11 = new Label();
-            txtMemoria = new TextBox();
             Id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             TiempoLlegada = new DataGridViewTextBoxColumn();
@@ -67,6 +60,13 @@
             Algoritmo = new DataGridViewTextBoxColumn();
             Sorteo = new DataGridViewTextBoxColumn();
             btnMatar = new DataGridViewButtonColumn();
+            btnEjecutar = new Button();
+            dataGridView1 = new DataGridView();
+            txtSorteo = new TextBox();
+            label10 = new Label();
+            txtQuantum = new TextBox();
+            label11 = new Label();
+            txtMemoria = new TextBox();
             ((System.ComponentModel.ISupportInitialize)datagridProcesos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -347,87 +347,6 @@
             datagridProcesos.TabIndex = 20;
             datagridProcesos.CellContentClick += datagridProcesos_CellContentClick;
             // 
-            // btnEjecutar
-            // 
-            btnEjecutar.BackColor = Color.MidnightBlue;
-            btnEjecutar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEjecutar.ForeColor = SystemColors.ButtonHighlight;
-            btnEjecutar.Location = new Point(824, 208);
-            btnEjecutar.Margin = new Padding(3, 2, 3, 2);
-            btnEjecutar.Name = "btnEjecutar";
-            btnEjecutar.Size = new Size(113, 40);
-            btnEjecutar.TabIndex = 21;
-            btnEjecutar.Text = "Ejecutar";
-            btnEjecutar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(587, 490);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(8, 8);
-            dataGridView1.TabIndex = 22;
-            // 
-            // txtSorteo
-            // 
-            txtSorteo.BackColor = SystemColors.InactiveCaption;
-            txtSorteo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSorteo.ForeColor = SystemColors.WindowText;
-            txtSorteo.Location = new Point(462, 256);
-            txtSorteo.Margin = new Padding(3, 2, 3, 2);
-            txtSorteo.Name = "txtSorteo";
-            txtSorteo.Size = new Size(163, 29);
-            txtSorteo.TabIndex = 23;
-            txtSorteo.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(679, 112);
-            label10.Name = "label10";
-            label10.Size = new Size(91, 25);
-            label10.TabIndex = 24;
-            label10.Text = "Quantum";
-            // 
-            // txtQuantum
-            // 
-            txtQuantum.BackColor = SystemColors.InactiveCaption;
-            txtQuantum.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtQuantum.ForeColor = SystemColors.WindowText;
-            txtQuantum.Location = new Point(774, 116);
-            txtQuantum.Margin = new Padding(3, 2, 3, 2);
-            txtQuantum.Name = "txtQuantum";
-            txtQuantum.Size = new Size(163, 29);
-            txtQuantum.TabIndex = 25;
-            txtQuantum.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(679, 164);
-            label11.Name = "label11";
-            label11.Size = new Size(88, 25);
-            label11.TabIndex = 26;
-            label11.Text = "Memoria";
-            // 
-            // txtMemoria
-            // 
-            txtMemoria.BackColor = SystemColors.InactiveCaption;
-            txtMemoria.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMemoria.ForeColor = SystemColors.WindowText;
-            txtMemoria.Location = new Point(774, 164);
-            txtMemoria.Margin = new Padding(3, 2, 3, 2);
-            txtMemoria.Name = "txtMemoria";
-            txtMemoria.Size = new Size(163, 29);
-            txtMemoria.TabIndex = 27;
-            txtMemoria.TextAlign = HorizontalAlignment.Center;
-            // 
             // Id
             // 
             Id.HeaderText = "ID Proceso";
@@ -497,6 +416,88 @@
             btnMatar.Name = "btnMatar";
             btnMatar.Text = "x";
             btnMatar.Width = 75;
+            // 
+            // btnEjecutar
+            // 
+            btnEjecutar.BackColor = Color.MidnightBlue;
+            btnEjecutar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEjecutar.ForeColor = SystemColors.ButtonHighlight;
+            btnEjecutar.Location = new Point(824, 208);
+            btnEjecutar.Margin = new Padding(3, 2, 3, 2);
+            btnEjecutar.Name = "btnEjecutar";
+            btnEjecutar.Size = new Size(113, 40);
+            btnEjecutar.TabIndex = 21;
+            btnEjecutar.Text = "Ejecutar";
+            btnEjecutar.UseVisualStyleBackColor = false;
+            btnEjecutar.Click += btnEjecutar_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(587, 490);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(8, 8);
+            dataGridView1.TabIndex = 22;
+            // 
+            // txtSorteo
+            // 
+            txtSorteo.BackColor = SystemColors.InactiveCaption;
+            txtSorteo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSorteo.ForeColor = SystemColors.WindowText;
+            txtSorteo.Location = new Point(462, 256);
+            txtSorteo.Margin = new Padding(3, 2, 3, 2);
+            txtSorteo.Name = "txtSorteo";
+            txtSorteo.Size = new Size(163, 29);
+            txtSorteo.TabIndex = 23;
+            txtSorteo.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.ButtonHighlight;
+            label10.Location = new Point(679, 112);
+            label10.Name = "label10";
+            label10.Size = new Size(91, 25);
+            label10.TabIndex = 24;
+            label10.Text = "Quantum";
+            // 
+            // txtQuantum
+            // 
+            txtQuantum.BackColor = SystemColors.InactiveCaption;
+            txtQuantum.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtQuantum.ForeColor = SystemColors.WindowText;
+            txtQuantum.Location = new Point(774, 116);
+            txtQuantum.Margin = new Padding(3, 2, 3, 2);
+            txtQuantum.Name = "txtQuantum";
+            txtQuantum.Size = new Size(163, 29);
+            txtQuantum.TabIndex = 25;
+            txtQuantum.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.ButtonHighlight;
+            label11.Location = new Point(679, 164);
+            label11.Name = "label11";
+            label11.Size = new Size(88, 25);
+            label11.TabIndex = 26;
+            label11.Text = "Memoria";
+            // 
+            // txtMemoria
+            // 
+            txtMemoria.BackColor = SystemColors.InactiveCaption;
+            txtMemoria.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMemoria.ForeColor = SystemColors.WindowText;
+            txtMemoria.Location = new Point(774, 164);
+            txtMemoria.Margin = new Padding(3, 2, 3, 2);
+            txtMemoria.Name = "txtMemoria";
+            txtMemoria.Size = new Size(163, 29);
+            txtMemoria.TabIndex = 27;
+            txtMemoria.TextAlign = HorizontalAlignment.Center;
             // 
             // FormAddProcesos
             // 

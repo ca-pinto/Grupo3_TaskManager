@@ -63,5 +63,15 @@ namespace Grupo3_TaskManager
                 ColaProcesos.Enqueue(proceso);
             }
         }
+
+        public static List<int> ObtenerIdsProcesos()
+        {
+            return ColaProcesos.Select(p => p.Id).ToList();
+        }
+
+        public static List<Procesos> ObtenerProcesosOrdenadosPorTiempoLlegada()
+        {
+            return ColaProcesos.OrderBy(p => p.TiempoLlegada).ToList();
+        }
     }
 }

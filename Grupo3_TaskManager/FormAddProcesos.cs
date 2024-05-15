@@ -14,6 +14,8 @@ namespace Grupo3_TaskManager
     {
         private string SeleccionAlgoritmo;
 
+        internal SistemaOperativo SistemaOperativo { get; private set; }
+
         public FormAddProcesos(string algoritmo)
         {
             InitializeComponent();
@@ -60,7 +62,9 @@ namespace Grupo3_TaskManager
             bool terminado = (rdbTrue.Checked ? true : false);
             string algoritmo = SeleccionAlgoritmo.ToString();
             int sorteo = 0;
+            int quantum = Convert.ToInt32(txtQuantum.Text);
 
+            SistemaOperativo = new SistemaOperativo(quantum);
             Procesos procesos = new Procesos(id, nombre, tiempoLlegada, tiempoCpu, prioridad, estado, terminado, algoritmo, sorteo);
 
             GestorColas.AgregarProceso(procesos);
@@ -179,6 +183,60 @@ namespace Grupo3_TaskManager
 
                 ActualizarDataGridView();
             }
+        }
+
+        private void btnEjecutar_Click(object sender, EventArgs e)
+        {
+            if (SeleccionAlgoritmo == "Planificación Garantizada")
+            {
+                PlanGarantizada();
+
+            }
+        }
+
+        public async Task PlanGarantizada()
+        {
+            int distroQuantum = (SistemaOperativo.Quantum / GestorColas.ContarProcesos());
+
+            foreach (Procesos proceso in GestorColas.ObtenerProcesosOrdenadosPorTiempoLlegada())
+            {
+                proceso.Estado = "Listo";
+                var procesoActual = GestorColas.EliminarProceso();
+
+
+                await Task.Delay(1500);
+                if (procesoActual.TiempoCpu > 0)
+                {
+                    procesoActual.Estado = "Ejecución";
+                    ActualizarDataGridView();
+
+                    await Task.Delay(2000);
+
+                    if (procesoActual.TiempoCpu <= distroQuantum)
+                    {
+                        await Task.Delay(2000);
+                        procesoActual.TiempoCpu = 0;
+                        procesoActual.Estado = "Finalizado";
+                    }
+                    else
+                    {
+                        procesoActual.TiempoCpu -= distroQuantum;
+                        procesoActual.Estado = "Bloqueo";
+
+                        GestorColas.AgregarProceso(procesoActual);
+                    }
+                    ActualizarDataGridView();
+                    await Task.Delay(2000);
+                }
+
+            }
+
+            foreach (var proceso in GestorColas.ObtenerColaProcesos().Where(p => p.Estado == "Bloqueo"))
+            {
+                await Task.Delay(2000);
+                proceso.Estado = "Listo";
+            }
+            ActualizarDataGridView();
         }
     }
 }

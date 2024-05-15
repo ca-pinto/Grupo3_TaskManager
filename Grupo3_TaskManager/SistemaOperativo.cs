@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Grupo3_TaskManager
 {
-    internal class SistemaOperativo
+    public  class SistemaOperativo
     {
-        public int Quantum;
-        public int Memoria;
-        public SistemaOperativo(int quantum, int memoria) { 
+        public int Quantum { get; set; }
+        
+        public SistemaOperativo(int quantum) { 
             Quantum = quantum;
-            Memoria = memoria;
+            
+        }
+
+        public int GetQuantum() { 
+            return Quantum;
         }
     }
 }

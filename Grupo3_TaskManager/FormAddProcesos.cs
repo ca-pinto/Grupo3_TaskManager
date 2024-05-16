@@ -192,6 +192,18 @@ namespace Grupo3_TaskManager
                 PlanGarantizada();
 
             }
+            else if (SeleccionAlgoritmo == "Trabajo más corto primero")
+            {
+                AlgoritmoMasCorto();
+            }
+            else if (SeleccionAlgoritmo == "Planificación por Prioridad")
+            {
+                AlgoritmoPrioridad();
+            }
+            else if (SeleccionAlgoritmo == "Round Robin")
+            {
+                AlgoritmoRoundRobin(int.Parse(txtQuantum.Text));
+            }
         }
 
         public async Task PlanGarantizada()
@@ -202,7 +214,7 @@ namespace Grupo3_TaskManager
             {
                 proceso.Estado = "Listo";
                 var procesoActual = GestorColas.EliminarProceso();
-
+                
 
                 await Task.Delay(1500);
                 if (procesoActual.TiempoCpu > 0)
@@ -238,5 +250,109 @@ namespace Grupo3_TaskManager
             }
             ActualizarDataGridView();
         }
+        private async Task AlgoritmoMasCorto()
+        {
+            foreach (Procesos proceso in GestorColas.OrdenarPorTiempoCpu())
+            {
+                proceso.Estado = "Listo";
+                var procesoActual = GestorColas.EliminarProceso();
+
+                await Task.Delay(2500);
+
+                if (procesoActual.TiempoCpu > 0)
+                {
+                    procesoActual.Estado = "Ejecución";
+                    ActualizarDataGridView();
+
+                    await Task.Delay(3000);
+
+                    if (procesoActual.TiempoCpu <= SistemaOperativo.Quantum)
+                    {
+                        await Task.Delay(3000);
+                        procesoActual.TiempoCpu = 0;
+                        procesoActual.Estado = "Finalizado";
+                    }
+                    else
+                    {
+                        procesoActual.TiempoCpu -= SistemaOperativo.Quantum;
+                        procesoActual.Estado = "Bloqueo";
+
+                        GestorColas.AgregarProceso(procesoActual);
+                    }
+                    ActualizarDataGridView();
+                    await Task.Delay(2000);
+                }
+            }
+        }
+        private async Task AlgoritmoPrioridad()
+        {
+            foreach (Procesos proceso in GestorColas.OrdenarPorPrioridad())
+            {
+                proceso.Estado = "Listo";
+                var procesoActual = GestorColas.EliminarProceso();
+
+                await Task.Delay(2500);
+
+                if (procesoActual.TiempoCpu > 0)
+                {
+                    procesoActual.Estado = "Ejecución";
+                    ActualizarDataGridView();
+
+                    await Task.Delay(3000);
+
+                    if (procesoActual.TiempoCpu <= SistemaOperativo.Quantum)
+                    {
+                        await Task.Delay(3000);
+                        procesoActual.TiempoCpu = 0;
+                        procesoActual.Estado = "Finalizado";
+                    }
+                    else
+                    {
+                        procesoActual.TiempoCpu -= SistemaOperativo.Quantum;
+                        procesoActual.Estado = "Bloqueo";
+
+                        GestorColas.AgregarProceso(procesoActual);
+                    }
+                    ActualizarDataGridView();
+                    await Task.Delay(2000);
+                }
+            }
+        }
+
+        private async Task AlgoritmoRoundRobin(int quantum)
+        {
+            Queue<Procesos> cola = new Queue<Procesos>(GestorColas.ObtenerProcesosOrdenadosPorTiempoLlegada());
+
+            while (cola.Count > 0)
+            {
+                Procesos proceso = cola.Dequeue();
+                proceso.Estado = "Listo";
+
+                await Task.Delay(1500);
+
+                proceso.Estado = "Ejecución";
+                ActualizarDataGridView();
+
+                await Task.Delay(2000);
+
+                if (proceso.TiempoCpu <= quantum)
+                {
+                    await Task.Delay(2000);
+                    proceso.TiempoCpu = 0;
+                    proceso.Estado = "Finalizado";
+                }
+                else
+                {
+                    await Task.Delay(2000);
+                    proceso.TiempoCpu -= quantum;
+                    proceso.Estado = "Bloqueo"; // Se coloca en estado de bloqueo temporal
+                    cola.Enqueue(proceso); // Colocar el proceso al final de la cola
+                }
+                ActualizarDataGridView();
+                await Task.Delay(2000);
+            }
+        }
+
+
     }
 }

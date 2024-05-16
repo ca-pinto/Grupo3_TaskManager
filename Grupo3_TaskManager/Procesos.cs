@@ -18,6 +18,8 @@ namespace Grupo3_TaskManager
         public string Algoritmo { get; set; }
         public int? Sorteo { get; set; } // Sorteo es opcional
 
+        public int Tickets { get; set; }
+
 
         public Procesos(int id, string nombre, int tiempoLlegada, int tiempoCpu, int prioridad, string estado, bool terminado, string algoritmo, int? sorteo = null)
         {

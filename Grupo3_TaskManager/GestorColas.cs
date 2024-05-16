@@ -31,17 +31,15 @@ namespace Grupo3_TaskManager
         {
             return ColaProcesos;
         }
-
-        public static void OrdenarPorPrioridad()
+        public static List<Procesos> OrdenarPorPrioridad()
         {
             var listaOrdenada = ColaProcesos.OrderByDescending(p => p.Prioridad).ToList();
-            ActualizarCola(listaOrdenada);
+            return listaOrdenada;
         }
 
-        public static void OrdenarPorTiempoCpu()
+        public static List<Procesos> OrdenarPorTiempoCpu()
         {
-            var listaOrdenada = ColaProcesos.OrderBy(p => p.TiempoCpu).ToList();
-            ActualizarCola(listaOrdenada);
+            return ColaProcesos.OrderBy(p => p.TiempoCpu).ToList();
         }
 
         public static void OrdenarPorTiempoLlegada()
@@ -73,5 +71,6 @@ namespace Grupo3_TaskManager
         {
             return ColaProcesos.OrderBy(p => p.TiempoLlegada).ToList();
         }
+
     }
 }

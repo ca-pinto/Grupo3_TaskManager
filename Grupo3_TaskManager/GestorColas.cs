@@ -27,6 +27,12 @@ namespace Grupo3_TaskManager
             ColaProcesos.Where(p => p.Id != procesoId);
         }
 
+        public static void EliminarProceso(Procesos proceso)
+        {
+            var procesos = ColaProcesos.Where(p => p.Id != proceso.Id).ToList();
+            ActualizarCola(procesos);
+        }
+
         public static int ContarProcesos()
         {
             return ColaProcesos.Count;

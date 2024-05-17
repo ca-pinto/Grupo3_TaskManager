@@ -237,18 +237,29 @@ namespace Grupo3_TaskManager
 
         public async Task PlanGarantizada()
         {
-            int distroQuantum = (SistemaOperativo.Quantum / GestorColas.ContarProcesos());
-            txtQuantum.Text = distroQuantum.ToString();
+            int _quantumSO = Convert.ToInt32(txtQuantum.Text);
             txtQuantum.Enabled = false;
-
-            while(GestorColas.ContarProcesos() > 0)
+            int cantProcesoInicial = GestorColas.ContarProcesos();
+            while (GestorColas.ContarProcesos() > 0)
             {
+
+                int cantidadProcesos = GestorColas.ContarProcesos();
+                int  distroQuantum = (_quantumSO / cantProcesoInicial);
+                if (cantidadProcesos < cantProcesoInicial)
+                {
+                    distroQuantum = (_quantumSO / cantidadProcesos);
+                    txtQuantum.Text = distroQuantum.ToString();
+                } else {
+                    txtQuantum.Text = distroQuantum.ToString();
+                }
+
                 foreach (Procesos proceso in GestorColas.ObtenerProcesosOrdenadosPorTiempoLlegada())
                 {
                     if (proceso.TiempoCpu > 0)
                     {
                         proceso.Estado = "Listo";
                     }
+
                     var procesoActual = GestorColas.EliminarProceso();
                     var aux = procesoActual;
                     GestorColas.AgregarProceso(aux);
@@ -271,20 +282,19 @@ namespace Grupo3_TaskManager
                         else
                         {
                             procesoActual.Estado = "Bloqueo";
-
                             GestorColas.AgregarProceso(procesoActual);
                         }
                         ActualizarDataGridView();
                         await Task.Delay(2000);
                     }
                 }
-
             }
 
             foreach (var proceso in GestorColas.ObtenerColaProcesos().Where(p => p.Estado == "Bloqueo"))
             {
                 await Task.Delay(2000);
-                if (proceso.TiempoCpu > 0){
+                if (proceso.TiempoCpu > 0)
+                {
                     proceso.Estado = "Listo";
                 }
             }
@@ -411,32 +421,35 @@ namespace Grupo3_TaskManager
 
             while (GestorColas.ContarProcesos() > 0)
             {
-
                 if (GestorColas.ContarProcesos() == 0)
                     break;
 
-
                 foreach (Procesos proceso in GestorColas.ObtenerColaProcesos())
                 {
-                    proceso.Tickets = CalcularTickets(proceso.Prioridad);
+                    proceso.Tickets = CalcularTickets(proceso.Prioridad, SistemaOperativo.Quantum);
+                    proceso.Sorteo = proceso.Tickets;
                 }
 
+
                 int totalTickets = GestorColas.ObtenerColaProcesos().Sum(proceso => proceso.Tickets);
+                txtSorteo.Text = totalTickets.ToString();
+
 
                 int ticketGanador = random.Next(1, totalTickets + 1);
-                int ticketsAcumulados = 0;
-                Procesos procesoActual = null;
 
+
+                Procesos procesoActual = null;
+                int ticketsAcumulados = 0;
                 foreach (Procesos proceso in GestorColas.ObtenerColaProcesos())
                 {
                     ticketsAcumulados += proceso.Tickets;
-
                     if (ticketGanador <= ticketsAcumulados)
                     {
                         procesoActual = proceso;
                         break;
                     }
                 }
+
 
                 if (procesoActual != null)
                 {
@@ -463,32 +476,24 @@ namespace Grupo3_TaskManager
                 }
             }
 
-            foreach (var proceso in GestorColas.ObtenerColaProcesos().Where(p => p.Estado == "Bloqueo"))
+
+            foreach (Procesos proceso in GestorColas.ObtenerColaProcesos().Where(p => p.Estado == "Bloqueo"))
             {
                 await Task.Delay(delay);
                 proceso.Estado = "Listo";
             }
             ActualizarDataGridView();
         }
-        private int CalcularTickets(int prioridad)
+        private int CalcularTickets(int prioridad, int quantum)
         {
-
-            const int Bajo = 1;
-            const int Medio = 2;
-            const int Alto = 3;
+            const int FactorTickets = 100;
 
 
-            switch (prioridad)
-            {
-                case 1:
-                    return Bajo;
-                case 2:
-                    return Medio;
-                case 3:
-                    return Alto;
-                default:
-                    return 0;
-            }
+
+            int tickets = (prioridad / quantum) * FactorTickets;
+
+
+            return Math.Max(tickets, 1);
         }
     }
 }
